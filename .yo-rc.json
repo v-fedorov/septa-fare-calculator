@@ -4,6 +4,17 @@
     "angularCookies": false,
     "angularAnimate": false,
     "angularSanitize": false,
-    "angularMaterial": true
+    "angularMaterial": true,
+    "modules": [
+      {
+        "name": "fare"
+      }
+    ],
+    "menu": [
+      {
+        "link": "fare",
+        "title": "Fare"
+      }
+    ]
   }
 }
