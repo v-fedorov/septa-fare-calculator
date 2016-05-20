@@ -13,6 +13,15 @@
 	angular
 		.module('septa-fare-calculator')
 		.config(configure)
+		.filter('titleize', function () {
+		        return function (text) {
+		            var frags = text.split('_');
+					for (var i=0; i<frags.length; i++) {
+						frags[i] = frags[i].charAt(0).toUpperCase() + frags[i].slice(1);
+					}
+					return frags.join(' ');
+		        };
+		})
 		.run(runBlock);
 
 	configure.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
