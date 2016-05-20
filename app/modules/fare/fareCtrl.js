@@ -26,7 +26,7 @@
 			var vm = this;
 
 			FareService.getData().then(function(data) {
-				vm.data = data;
+				vm.data  = data;
 				vm.zones = lodash.map(vm.data.zones, 'name');
 				vm.info  = vm.data.info;
 				vm.types = [];
