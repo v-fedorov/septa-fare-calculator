@@ -12,8 +12,6 @@
   	angular
 		.module('fare')
 		.factory('FareService', Fare);
-		// Inject your dependencies as .$inject = ['$http', 'someSevide'];
-		// function Name ($http, someSevide) {...}
 
 		Fare.$inject = ['$http'];
 

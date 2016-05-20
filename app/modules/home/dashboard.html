@@ -1,7 +1,39 @@
 <div class="md-padding" flex layout-sm="column" ng-controller="FareCtrl as vm" ng-cloak>
     <md-card class="text-center">
         <md-card-content>
-            {{vm.data}}
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Regional Rail Fares</span>
+                    </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <h1 class="md-title">Where are you going?</h1>
+                        <div layout="row">
+                          <md-input-container flex-xs flex-gt-xs="100">
+                            <md-select ng-model="vm.selectedZone" md-selected-text="vm.getSelectedText('Zone')" ng-change="vm.selectZone()">
+                              <md-optgroup label="zones">
+                                <md-option ng-value="zone" ng-repeat="zone in vm.zones">{{zone}}</md-option>
+                              </md-optgroup>
+                            </md-select>
+                          </md-input-container>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <md-card ng-if="vm.selectedZone">
+                    <md-card-content>
+                        <h1 class="md-title">When are you riding?</h1>
+                        <div layout="row">
+                          <md-input-container flex-xs flex-gt-xs="100">
+                            <md-select ng-model="vm.selectedType" md-selected-text="vm.getSelectedText('Type')">
+                              <md-optgroup label="when">
+                                <md-option ng-value="type" ng-repeat="type in vm.types">{{type}}</md-option>
+                              </md-optgroup>
+                            </md-select>
+                          </md-input-container>
+                        </div>
+                    </md-card-content>
+                </md-card>
         </md-card-content>
     </md-card>
 </div>
