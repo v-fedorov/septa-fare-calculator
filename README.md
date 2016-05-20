@@ -1,1 +1,4 @@
-# Ang-Generator
+npm install
+bower install
+
+grunt dev
