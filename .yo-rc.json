@@ -1,0 +1,9 @@
+{
+  "generator-angm": {
+    "appName": "septa-fare-calculator",
+    "angularCookies": false,
+    "angularAnimate": false,
+    "angularSanitize": false,
+    "angularMaterial": true
+  }
+}
