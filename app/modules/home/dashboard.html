@@ -25,7 +25,7 @@
                         <h1 class="md-title">When are you riding?</h1>
                         <div layout="row">
                           <md-input-container flex-xs flex-gt-xs="100">
-                            <md-select ng-model="vm.selectedType" md-selected-text="vm.getSelectedText('Type')">
+                            <md-select ng-model="vm.selectedType" md-selected-text="vm.getSelectedText('Type')" ng-change="vm.getPrice()">
                               <md-optgroup label="when">
                                 <md-option ng-value="type" ng-repeat="type in vm.types">{{type}}</md-option>
                               </md-optgroup>
@@ -34,6 +34,36 @@
                         </div>
                     </md-card-content>
                 </md-card>
+                <md-card ng-if="vm.selectedType">
+                    <md-card-content>
+                        <h1 class="md-title">Where will you purchase the fare?</h1>
+                        <div layout="row">
+                            <md-input-container flex-xs flex-gt-xs="100">
+                                <md-radio-group ng-model="vm.selectedPurchase" ng-change="vm.getPrice()">
+                                    <md-radio-button ng-value="purchase" ng-repeat="purchase in vm.purchases">{{purchase}}</md-radio-button>
+                                </md-radio-group>
+                            </md-input-container>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <md-card ng-if="vm.selectedPurchase">
+                    <md-card-content>
+                        <h1 class="md-title">How many rides will you need?</h1>
+                        <div layout="row">
+                            <md-input-container flex-xs flex-gt-xs="100">
+                                <input ng-model="vm.trips" type="text" ng-change="vm.getPrice()">
+                            </md-input-container>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <md-toolbar class="md-warn" ng-if="vm.selectedPurchase && vm.price">
+                    <div class="md-toolbar-tools text-center">
+                        <p class="md-flex" style="width: 100%;">
+                            Your fare will cost <br/>
+                            <h2 class="md-flex">${{vm.price}}</h2>
+                        </p>
+                    </div>
+                </md-toolbar>
         </md-card-content>
     </md-card>
 </div>
